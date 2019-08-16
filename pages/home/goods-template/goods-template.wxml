@@ -1,0 +1,10 @@
+<template name="goodsTemplate">
+  <view class='goods-container' bindtap='onTapGoods' data-goodsId=''>
+    <image class='goods-img' src='{{src}}' mode='aspectFill'></image>
+    <text class='goods-title'>{{title}}</text>
+    <view class='price-container'>
+      <text class='price-tag'>到手价：</text>
+      <text class='goods-price'>{{price}}</text>
+    </view>
+  </view>
+</template>

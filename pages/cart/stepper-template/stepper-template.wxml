@@ -1,0 +1,11 @@
+<template name="stepperTemplate">
+  <!-- 主容器 -->  
+  <view class="stepper">  
+      <!-- 减号 -->  
+      <text class="{{minusStatus}}" bindtap="onMinus" data-index="{{index}}">-</text>  
+      <!-- 数值 -->  
+      <input type="number" bindchange="onManual" data-index="{{index}}" value="{{num}}" />  
+      <!-- 加号 -->  
+      <text class="normal" bindtap="onPlus" data-index="{{index}}">+</text>  
+  </view>  
+</template>

@@ -1,0 +1,82 @@
+@import "cart-goods-template/cart-goods-template.wxss";
+
+page {
+  background-color: rgb(245, 245, 248);
+}
+
+.count-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20rpx;
+  background-color: #1296db;
+}
+.count-container text {
+  font-size: 28rpx;
+  color: white;
+}
+
+/* 内容容器 */
+.content-container {
+  margin-bottom: 108rpx;
+}
+
+/* 底部全选结算栏 */
+.bottom-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 88rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 99;
+}
+
+.choose {
+  display: flex;
+  align-items: center;
+  margin-left: 20rpx;
+}
+.choose-img {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.choose-title {
+  color: #999;
+  font-size: 26rpx;
+  font-weight: lighter;
+  margin-left: 10rpx;
+}
+
+.account {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 20rpx;
+}
+
+.account-title {
+  color: #333;
+  font-size: 26rpx;
+}
+
+.account-value {
+  color: #ff5533;
+  font-size: 26rpx;
+  margin-right: 20rpx;
+}
+
+.account-count {
+  background-color: #1296db;
+  font-size: 28rpx;
+  color: white;
+  border-radius: 34rpx;
+  width: 140rpx;
+  line-height: 68rpx;
+  text-align: center;
+  vertical-align: middle;
+}

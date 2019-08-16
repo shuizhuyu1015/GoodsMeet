@@ -1,0 +1,27 @@
+<import src="../stepper-template/stepper-template.wxml" />
+
+<template name="cartGoodsTemplate">
+  <view class="goods-container">
+    <!-- 选中按钮 -->
+    <view class="select-container">
+      <image class="select-img" src="/images/check_sel.png"></image>
+    </view>
+    
+    <view class="detail-container">
+      <!-- 图标 -->
+      <image class="goods-img" src="{{goodsImage}}"></image>
+      <view class="title-price-num">
+        <!-- 标题 -->
+        <text class="goods-title">{{goodsTitle}}</text>
+        <view class="price-num">
+          <!-- 价格 -->
+          <text class="goods-price">{{goodsPrice}}</text>
+          <!-- 计数器 -->
+          <view class="goods-stepper">
+            <template is='stepperTemplate' data='{{num, minusStatus, index}}' />
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

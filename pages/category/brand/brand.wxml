@@ -1,0 +1,3 @@
+<view>
+  <text>当前是 {{brand}} 品牌专区</text>
+</view>

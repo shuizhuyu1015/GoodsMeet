@@ -1,0 +1,24 @@
+<import src="cart-goods-template/cart-goods-template.wxml" />
+
+<view class="count-container">
+  <text>共5件宝贝</text>
+  <text>管理</text>
+</view>
+
+<view class="content-container">
+  <block wx:for="{{goodsList}}">
+    <template is="cartGoodsTemplate" data="{{...item, index}}" />
+  </block>
+</view>
+
+<view class="bottom-container">
+  <view class="choose">
+    <image class="choose-img" src="/images/check_nor.png"></image>
+    <text class="choose-title">全选</text>
+  </view>
+  <view class="account">
+    <text class="account-title">合计：</text>
+    <text class="account-value">¥0</text>
+    <text class="account-count">结算(0)</text>
+  </view>
+</view>

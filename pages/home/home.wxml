@@ -1,0 +1,19 @@
+<import src='goods-template/goods-template.wxml' />
+<import src='../../common/race-lamp/race-lamp.wxml' />
+
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}" wx:key="*this">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" mode='aspectFill' />
+    </swiper-item>
+  </block>
+</swiper>
+
+<!-- 跑马灯 -->
+<template is='raceLamp' data="{{lampContent}}" />
+
+<view class='goods-list-container'>
+  <block wx:for="{{goodsList}}" wx:for-item="item">
+    <template is="goodsTemplate" data="{{...item}}" />
+  </block>
+</view>

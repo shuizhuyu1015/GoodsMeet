@@ -1,0 +1,17 @@
+.kf_button {
+  position: fixed;
+  height: 80rpx;
+  right: 0;
+  bottom: 20rpx;
+  background-color: white;
+}
+
+.kf_button::after {
+  border: none;
+}
+
+.kf_button image {
+  width: 80rpx;
+  height: 80rpx;
+  margin: auto;
+}

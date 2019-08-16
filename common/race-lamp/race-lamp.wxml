@@ -1,0 +1,5 @@
+<template name='raceLamp'>
+  <view class='lamp_container'>
+    <view class='lamp_text'>{{lampContent}}</view>
+  </view>
+</template>
