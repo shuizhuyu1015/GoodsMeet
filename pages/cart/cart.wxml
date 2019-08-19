@@ -12,13 +12,13 @@
 </view>
 
 <view class="bottom-container">
-  <view class="choose">
-    <image class="choose-img" src="/images/check_nor.png"></image>
+  <view class="choose" bindtap="onSelectAll">
+    <image class="choose-img" src="{{isAllSelected ? '/images/check_sel.png' : '/images/check_nor.png'}}"></image>
     <text class="choose-title">全选</text>
   </view>
   <view class="account">
     <text class="account-title">合计：</text>
-    <text class="account-value">¥0</text>
-    <text class="account-count">结算(0)</text>
+    <text class="account-value">¥{{totalPrice}}</text>
+    <text class="account-count">结算({{selectedCount}})</text>
   </view>
 </view>

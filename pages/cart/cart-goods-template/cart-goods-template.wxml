@@ -3,22 +3,23 @@
 <template name="cartGoodsTemplate">
   <view class="goods-container">
     <!-- 选中按钮 -->
-    <view class="select-container">
-      <image class="select-img" src="/images/check_sel.png"></image>
+    <view class="select-container" bindtap="onSelectSingle" data-index="{{index}}">
+      <image class="select-img" src="{{isSelected ? '/images/check_sel.png' : '/images/check_nor.png'}}"></image>
     </view>
     
     <view class="detail-container">
       <!-- 图标 -->
-      <image class="goods-img" src="{{goodsImage}}"></image>
+      <image class="goods-img" src="{{goodsImage}}" mode="aspectFill"></image>
+      
       <view class="title-price-num">
         <!-- 标题 -->
         <text class="goods-title">{{goodsTitle}}</text>
         <view class="price-num">
           <!-- 价格 -->
-          <text class="goods-price">{{goodsPrice}}</text>
+          <text class="goods-price">¥{{goodsPrice}}</text>
           <!-- 计数器 -->
           <view class="goods-stepper">
-            <template is='stepperTemplate' data='{{num, minusStatus, index}}' />
+            <template is='stepperTemplate' data='{{num, index}}' />
           </view>
         </view>
       </view>

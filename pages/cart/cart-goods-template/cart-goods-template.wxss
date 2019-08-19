@@ -10,9 +10,12 @@
 }
 
 .select-container {
-  width: 96rpx;
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 56rpx;
+  width: 96rpx;
+  flex-shrink: 0;
 }
 
 .select-img {
@@ -30,6 +33,7 @@
 .goods-img {
   width: 100rpx;
   height: 100rpx;
+  flex-shrink: 0;
 }
 
 .title-price-num {
