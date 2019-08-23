@@ -1,2 +1,12 @@
-<!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+<import src="mine-module-template/mine-module-template.wxml" />
+
+<view class="mine-container">
+  <open-data class='user-avatar' type="userAvatarUrl" default-avatar="/images/default_avatar.png"></open-data>
+  <open-data class='user-name' type="userNickName" lang="zh_CN" default-text="登录"></open-data>
+</view>
+
+<view>
+  <block wx:for="{{modules}}" wx:key="*this">
+    <template is="mineModuleTemplate" data="{{item}}" />
+  </block>
+</view>

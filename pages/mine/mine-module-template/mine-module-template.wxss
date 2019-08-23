@@ -1,0 +1,19 @@
+.mine-module-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+  margin: 20rpx 0;
+  background-color: white;
+}
+.module-name {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 44rpx;
+  vertical-align: middle;
+}
+.indicate-img {
+  width: 20rpx;
+  height: 20rpx;
+}

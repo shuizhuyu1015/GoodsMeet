@@ -1,0 +1,245 @@
+@import "../../common/stepper-template/stepper-template.wxss";
+
+page {
+  background-color: #F3F4F6;
+}
+
+/* 直接设置swiper属性 */
+swiper {
+    height: 600rpx;
+    background: #F3F4F6;
+    text-align: center;  
+}
+swiper-item image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 标题价格 */
+.title-price {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+  background-color: white;
+  margin-bottom: 20rpx;
+}
+.prices {
+  display: flex;
+  align-items: center;
+}
+.discount-price {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #FF5353;
+}
+.original-price {
+  font-size: 24rpx;
+  color: lightgray;
+  text-decoration: line-through;
+  margin-left: 20rpx;
+}
+.title {
+  font-size: 30rpx;
+}
+
+/* 选择类型 */
+.kinds-container {
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+  color: #333;
+  display: flex;
+  align-items: center;
+  flex: none;
+  background-color: white;
+}
+.kinds {
+  flex: auto;
+  padding: 0 20rpx;
+  display: flex;
+  align-items: center;
+  color: gray;
+  font-size: 26rpx;
+}
+.single-kind {
+  margin-right: 10rpx;
+}
+.choose-arrow {
+  width: 20rpx;
+  height: 20rpx;
+  position: relative;
+  right: 0;
+}
+
+/* 宝贝详情 */
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.detail-title {
+  background-color: #F3F4F6;
+  font-size: 28rpx;
+  color: gray;
+  text-align: center;
+  line-height: 44rpx;
+  vertical-align: middle;
+  margin-bottom: 20rpx;
+}
+.detail-container image {
+  width: 100%;
+}
+
+
+/* 底部悬浮栏 */
+.bottom-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 88rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 99;
+}
+
+.left-container {
+  display: flex;
+  flex-direction: row;
+  flex: none;
+}
+.custom-button{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20rpx;
+  width: 80rpx;
+}
+.button-img {
+  width: 40rpx;
+  height: 40rpx;
+}
+.button-text {
+  font-size: 24rpx;
+  color: #333;
+}
+
+.right-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex: auto;
+  color: white;
+  font-size: 30rpx;
+  margin: 0 20rpx;
+}
+.add-cart-view {
+  background-color: rgb(98, 200, 235);
+  flex: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 68rpx;
+  width: 50%;
+  border-radius: 34rpx 0 0 34rpx;
+}
+.buy-view {
+  background-color: #1296db;
+  flex: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 68rpx;
+  width: 50%;
+  border-radius: 0 34rpx 34rpx 0;
+}
+
+/* sku选择 */
+.dialog-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+}
+.dialog-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  transform: translateY(150%);
+  transition: all 0.4s ease;
+  z-index: 110;
+}
+.dialog-show .dialog-container {
+  transform: translateY(0);
+}
+.dialog-show .dialog-mask {
+  display: block;
+}
+.infor-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.image-sku {
+  width: 200rpx;
+  height: 200rpx;
+  z-index: 120;
+  position: absolute;
+  left: 20px;
+  top: -30px;
+  border-radius: 20rpx;
+}
+.title-infor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.image-close {
+  position: fixed;
+  right: 20rpx;
+  top: 10rpx;
+}
+.sku-price {
+  color: #FF5353;
+  position: relative;
+  left: 300rpx;
+  line-height: 140rpx;
+  vertical-align: middle;
+}
+.quantity-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  border-top: 1px solid #e2e2e2;
+}
+.quantity-title {
+  font-size: 28rpx;
+  color: #333;
+}
+.submit-button {
+  border-top: 1px solid #e2e2e2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.submit-button text {
+  flex: auto;
+  margin: 20rpx;
+  line-height: 68rpx;
+  font-size: 30rpx;
+  color: white;
+  background-color: #1296db;
+  border-radius: 34rpx;
+  text-align: center;
+  vertical-align: middle;
+}
+

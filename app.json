@@ -4,13 +4,14 @@
     "pages/category/category",
     "pages/category/brand/brand",
     "pages/cart/cart",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/goods-detail/goods-detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#1296db",
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "天行港代"
+    "navigationBarTitleText": "好物天天荐"
   },
   "tabBar": {
     "color": "#999999",

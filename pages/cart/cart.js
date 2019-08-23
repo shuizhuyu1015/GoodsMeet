@@ -43,7 +43,7 @@ Page({
         isSelected: true
       },
       {
-        goodsId: 3,
+        goodsId: 5,
         goodsImage: 'https://img14.360buyimg.com/n7/jfs/t1/38785/6/8044/79274/5cf4ed57E99cdf548/d98bce866c615155.jpg',
         goodsTitle: '兰蔻（Lancome）清滢柔肤水400ml（大粉水）',
         goodsPrice: 329,
@@ -51,7 +51,7 @@ Page({
         isSelected: true
       },
       {
-        goodsId: 3,
+        goodsId: 6,
         goodsImage: 'https://img14.360buyimg.com/n7/jfs/t1/38785/6/8044/79274/5cf4ed57E99cdf548/d98bce866c615155.jpg',
         goodsTitle: '兰蔻（Lancome）清滢柔肤水400ml（大粉水）',
         goodsPrice: 329,
@@ -59,7 +59,7 @@ Page({
         isSelected: true
       },
       {
-        goodsId: 3,
+        goodsId: 7,
         goodsImage: 'https://img14.360buyimg.com/n7/jfs/t1/38785/6/8044/79274/5cf4ed57E99cdf548/d98bce866c615155.jpg',
         goodsTitle: '兰蔻（Lancome）清滢柔肤水400ml（大粉水）',
         goodsPrice: 329,
@@ -67,7 +67,7 @@ Page({
         isSelected: true
       },
       {
-        goodsId: 3,
+        goodsId: 8,
         goodsImage: 'https://img14.360buyimg.com/n7/jfs/t1/38785/6/8044/79274/5cf4ed57E99cdf548/d98bce866c615155.jpg',
         goodsTitle: '兰蔻（Lancome）清滢柔肤水400ml（大粉水）',
         goodsPrice: 329,
@@ -75,7 +75,7 @@ Page({
         isSelected: true
       },
       {
-        goodsId: 3,
+        goodsId: 9,
         goodsImage: 'https://img14.360buyimg.com/n7/jfs/t1/38785/6/8044/79274/5cf4ed57E99cdf548/d98bce866c615155.jpg',
         goodsTitle: '兰蔻（Lancome）清滢柔肤水400ml（大粉水）',
         goodsPrice: 329,

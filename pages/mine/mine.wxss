@@ -1,1 +1,24 @@
-/* pages/mine/mine.wxss */
+@import "mine-module-template/mine-module-template.wxss";
+
+page {
+  background-color: #F3F4F6;
+}
+
+.mine-container {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  background-color: #1296db;
+}
+.user-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  overflow: hidden;
+}
+.user-name {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: white;
+  margin: 20rpx;
+}

@@ -1,0 +1,6 @@
+<template name="mineModuleTemplate">
+  <view class="mine-module-container">
+    <text class="module-name">{{item}}</text>
+    <image class="indicate-img" src="/images/indicator_arrow.png" mode="aspectFit"></image>
+  </view>
+</template>

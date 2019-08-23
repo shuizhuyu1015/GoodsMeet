@@ -1,4 +1,4 @@
-<import src="../stepper-template/stepper-template.wxml" />
+<import src="../../../common/stepper-template/stepper-template.wxml" />
 
 <template name="cartGoodsTemplate">
   <view class="goods-container">

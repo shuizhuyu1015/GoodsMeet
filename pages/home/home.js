@@ -88,5 +88,14 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  /**
+   * 点击单个商品
+   */
+  onTapGoods: function(e) {
+    wx.navigateTo({
+      url: '/pages/goods-detail/goods-detail?id=111',
+    });
   }
 })
