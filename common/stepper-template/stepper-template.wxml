@@ -1,5 +1,6 @@
 <template name="stepperTemplate">
   <!-- 主容器 -->  
+  <!-- num：计步器数值，index：计步器所在数据列表下标 -->
   <view class="stepper">  
       <!-- 减号 -->  
       <text class="{{num <= 1 ? 'disabled' : 'normal'}}" bindtap="onMinus" data-index="{{index}}">-</text>  

@@ -1,24 +1,39 @@
-// pages/mine/brand/brand.js
+var util = require('../../../utils/util.js')
+var app = getApp();
+var that;
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    products: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var brand = options.title;
-    this.setData({
-      brand: brand
-    }); 
-    wx.setNavigationBarTitle({
-      title: brand,
-    });
+    that = this;
+    var brandId = options.id;
+
+    var url = app.globalData.txBase + "/brand/" + brandId;
+    util.getHttpHelper(url, null, false, this.processBrandData)
+
+    
+  },
+
+  processBrandData(data) {
+    var code = data.error_code;
+    if (code == 0) {
+      that.setData({
+        products: data.data.products
+      });
+      wx.setNavigationBarTitle({
+        title: data.data.description,
+      });
+    }
   },
 
   /**
@@ -68,5 +83,15 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  /**
+   * 点击单个商品
+   */
+  onTapGoods: function (e) {
+    let goodsid = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/goods-detail/goods-detail?id=' + goodsid,
+    });
   }
 })

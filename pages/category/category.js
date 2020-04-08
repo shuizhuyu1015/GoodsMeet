@@ -1,10 +1,14 @@
-// pages/category/category.js
+var util = require('../../utils/util.js')
+var app = getApp();
+var that;
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    cateItems: [],
     navItems: [
       {
         cate: '护肤美体',
@@ -226,22 +230,23 @@ Page({
     curIndex: 0,
   },
 
-  switchRightTab: function (e) {
-    // 获取item项的id，和数组的下标值
-    let id = e.target.dataset.id;
-    let index = parseInt(e.target.dataset.index);
-    // 把点击到的某一项，设为当前index
-    this.setData({
-      curNav: id,
-      curIndex: index
-    })
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    that = this;
 
+    var url = app.globalData.txBase + "/category/all";
+    util.getHttpHelper(url, null, false, this.processCateData)
+  },
+
+  processCateData(data) {
+    var code = data.error_code;
+    if(code == 0) {
+      that.setData({
+        cateItems: data.data
+      });
+    }
   },
 
   /**
@@ -291,5 +296,19 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  /**
+   * 
+   */
+  switchRightTab: function (e) {
+    // 获取item项的id，和数组的下标值
+    let id = e.target.dataset.id;
+    let index = parseInt(e.target.dataset.index);
+    // 把点击到的某一项，设为当前index
+    this.setData({
+      curNav: id,
+      curIndex: index
+    })
+  },
 })

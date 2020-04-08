@@ -32,12 +32,6 @@ swiper-item image {
   font-weight: bold;
   color: #FF5353;
 }
-.original-price {
-  font-size: 24rpx;
-  color: lightgray;
-  text-decoration: line-through;
-  margin-left: 20rpx;
-}
 .title {
   font-size: 30rpx;
 }
@@ -76,6 +70,7 @@ swiper-item image {
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin-bottom: 88rpx;
 }
 .detail-title {
   background-color: #F3F4F6;
@@ -132,8 +127,6 @@ swiper-item image {
   flex-direction: row;
   align-items: center;
   flex: auto;
-  color: white;
-  font-size: 30rpx;
   margin: 0 20rpx;
 }
 .add-cart-view {
@@ -145,6 +138,8 @@ swiper-item image {
   height: 68rpx;
   width: 50%;
   border-radius: 34rpx 0 0 34rpx;
+  color: white;
+  font-size: 30rpx;
 }
 .buy-view {
   background-color: #1296db;
@@ -155,6 +150,8 @@ swiper-item image {
   height: 68rpx;
   width: 50%;
   border-radius: 0 34rpx 34rpx 0;
+  color: white;
+  font-size: 30rpx;
 }
 
 /* sku选择 */
@@ -230,10 +227,10 @@ swiper-item image {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20rpx;
 }
 .submit-button text {
   flex: auto;
-  margin: 20rpx;
   line-height: 68rpx;
   font-size: 30rpx;
   color: white;

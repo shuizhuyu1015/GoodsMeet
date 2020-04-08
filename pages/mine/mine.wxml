@@ -1,12 +1,13 @@
 <import src="mine-module-template/mine-module-template.wxml" />
 
 <view class="mine-container">
-  <open-data class='user-avatar' type="userAvatarUrl" default-avatar="/images/default_avatar.png"></open-data>
-  <open-data class='user-name' type="userNickName" lang="zh_CN" default-text="登录"></open-data>
+    <image class="user-avatar" src="{{userInfo.avatarUrl ? userInfo.avatarUrl : '/images/default_avatar.png'}}"></image>
+    <button wx:if="{{!hasUserInfo && canIUse}}" class="user-name" type="primary" open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
+    <text wx:else class="user-name">{{userInfo.nickName}}</text>
 </view>
 
 <view>
   <block wx:for="{{modules}}" wx:key="*this">
-    <template is="mineModuleTemplate" data="{{item}}" />
+    <template is="mineModuleTemplate" data="{{item, index}}" />
   </block>
 </view>

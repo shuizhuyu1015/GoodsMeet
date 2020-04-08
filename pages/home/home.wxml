@@ -2,9 +2,9 @@
 <import src='../../common/race-lamp/race-lamp.wxml' />
 
 <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-  <block wx:for="{{imgUrls}}" wx:key="*this">
+  <block wx:for="{{banners}}">
     <swiper-item>
-      <image src="{{item}}" class="slide-image" mode='aspectFill' />
+      <image src="{{item.img_url}}" class="slide-image" mode='aspectFill' bindtap="onTapBanner" data-index="{{index}}" />
     </swiper-item>
   </block>
 </swiper>

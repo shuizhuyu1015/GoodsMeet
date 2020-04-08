@@ -7,7 +7,7 @@ page {
 .mine-container {
   display: flex;
   align-items: center;
-  padding: 20rpx;
+  padding: 30rpx 20rpx;
   background-color: #1296db;
 }
 .user-avatar {

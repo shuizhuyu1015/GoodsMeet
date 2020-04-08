@@ -1,17 +1,15 @@
-// pages/goods-detail/goods-detail.js
+var util = require('../../utils/util.js');
+var app = getApp();
+var that;
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      "https://m.360buyimg.com/n12/jfs/t11317/108/1080677336/325163/f4c2a03a/59fd8b17Nbe2fcca3.jpg!q70.jpg",
-      "https://m.360buyimg.com/n12/jfs/t11575/282/348533702/60173/d75cd1cc/59edb8d6N688b420f.jpg!q70.jpg",
-      "https://m.360buyimg.com/n12/jfs/t11536/279/360605865/15194/442cab0b/59edb8d3N163a7608.jpg!q70.jpg",
-      "https://m.360buyimg.com/n12/s750x750_jfs/t9733/126/2033941175/68120/a4eb4468/59edb8d6N37bea6f7.jpg!q70.jpg",
-      "https://m.360buyimg.com/n12/s750x750_jfs/t10744/195/2053933852/71608/94425578/59edb8d6Ne28c70ff.jpg!q70.jpg"
-    ],
+    goods: null,
+
     indicatorDots: true, //是否显示面板指示点
     autoplay: true, //是否自动切换
     interval: 3000, //自动切换时间间隔,3s
@@ -19,31 +17,31 @@ Page({
 
     goodsQuantity: 1,
     showDialog: false, 
-
-    detailImg: [
-      "https://haitao.nosdn1.127.net/8b8f60cb94b148e485dd50934e35ecca1511959468798jal1mola10610.jpg?imageView&quality=98&crop=0_0_750_500&imageView&thumbnail=710x0&quality=85",
-      "https://haitao.nosdn1.127.net/8b8f60cb94b148e485dd50934e35ecca1511959468798jal1mola10610.jpg?imageView&quality=98&crop=0_500_750_500&imageView&thumbnail=710x0&quality=85",
-      "https://haitao.nosdn1.127.net/8b8f60cb94b148e485dd50934e35ecca1511959468798jal1mola10610.jpg?imageView&quality=98&crop=0_1000_750_500&imageView&thumbnail=710x0&quality=85",
-      "https://haitao.nosdn1.127.net/8b8f60cb94b148e485dd50934e35ecca1511959468798jal1mola10610.jpg?imageView&quality=98&crop=0_1500_750_500&imageView&thumbnail=710x0&quality=85",
-      "https://haitao.nosdn1.127.net/8b8f60cb94b148e485dd50934e35ecca1511959468798jal1mola10610.jpg?imageView&quality=98&crop=0_2000_750_500&imageView&thumbnail=710x0&quality=85",
-      "https://haitao.nosdn1.127.net/8b8f60cb94b148e485dd50934e35ecca1511959468798jal1mola10610.jpg?imageView&quality=98&crop=0_2500_750_500&imageView&thumbnail=710x0&quality=85",
-      "https://haitao.nosdn1.127.net/8b8f60cb94b148e485dd50934e35ecca1511959468798jal1mola10610.jpg?imageView&quality=98&crop=0_3000_750_500&imageView&thumbnail=710x0&quality=85",
-      "https://haitao.nosdn1.127.net/8b8f60cb94b148e485dd50934e35ecca1511959468798jal1mola10610.jpg?imageView&quality=98&crop=0_3500_750_500&imageView&thumbnail=710x0&quality=85",
-      "https://haitao.nosdn1.127.net/8b8f60cb94b148e485dd50934e35ecca1511959468798jal1mola10610.jpg?imageView&quality=98&crop=0_4000_750_500&imageView&thumbnail=710x0&quality=85",
-      "https://haitao.nosdn1.127.net/8b8f60cb94b148e485dd50934e35ecca1511959468798jal1mola10610.jpg?imageView&quality=98&crop=0_4500_750_500&imageView&thumbnail=710x0&quality=85",
-      "https://haitao.nosdn1.127.net/8b8f60cb94b148e485dd50934e35ecca1511959468798jal1mola10610.jpg?imageView&quality=98&crop=0_5000_750_500&imageView&thumbnail=710x0&quality=85",
-      "https://haitao.nosdn1.127.net/8b8f60cb94b148e485dd50934e35ecca1511959468798jal1mola10610.jpg?imageView&quality=98&crop=0_5500_750_500&imageView&thumbnail=710x0&quality=85",
-    ]
+    standardSelected: false,
+    isCartOrBuy: 0  //1，加入购物车确认 2，购买确认
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    that = this;
     let goodsId = options.id;
-    this.setData({
-      goodsId: goodsId
-    });
+    
+    let url = app.globalData.txBase + "/goods/" + goodsId;
+    util.getHttpHelper(url, null, false, this.processGoodsData);
+  },
+
+  /**
+   * 处理商品详情返回数据
+   */
+  processGoodsData(data) {
+    if(data.error_code == 0) {
+      let goods = data.data;
+      that.setData({
+        goods: goods
+      });
+    }
   },
 
   /**
@@ -100,7 +98,7 @@ Page({
     var current = e.target.dataset.src;
     wx.previewImage({
       current: current, // 当前显示图片的http链接  
-      urls: this.data.imgUrls // 需要预览的图片http链接列表  
+      urls: this.data.goods.banners // 需要预览的图片http链接列表  
     })
   },
 
@@ -109,36 +107,6 @@ Page({
    */
   onContactKefu: function(){
 
-  },
-
-  /**
-   * 选择规格数量弹框
-   */
-  // 弹出
-  toggleDialog: function(e) {
-    this.setData({
-      showDialog: !this.data.showDialog
-    });
-  },
-  // 关闭
-  closeDialog: function() {
-    this.setData({
-      showDialog: false
-    });
-  },
-  
-  /**
-   * 加入购物车
-   */
-  addCar: function(e) {
-    wx.showToast({
-      title: '加入购物车成功',
-      icon: 'success',
-      duration: 2000
-    });
-    this.setData({
-      showDialog: false
-    });
   },
 
   /**
@@ -151,10 +119,82 @@ Page({
   },
 
   /**
-   * 立即购买
+   * 点击选择规格，弹出弹框
    */
-  immeBuy: function(){
+  onSelectedStandard: function(e) {
+    this.setData({
+      standardSelected: true,
+      showDialog: true,
+    });
+  },
+  
+  // 点击加入购物车
+  onAddCart: function() {
+    this.setData({
+      isCartOrBuy: 1
+    });
+    this.confirm();
+  },
 
+  // 点击立即购买
+  onImmeBuy: function(e){
+    this.setData({
+      isCartOrBuy: 2
+    });
+    this.confirm();
+  },
+
+  /**
+   * 点击底部加入购物车或购买，弹框
+   */
+  toggleDialog: function (e) {
+    this.setData({
+      showDialog: true,
+      isCartOrBuy: e.target.dataset.index
+    });
+  },
+
+  /**
+   * 确定
+   */
+  confirm() {
+    let cartOrBuy = this.data.isCartOrBuy;
+    if (cartOrBuy == 1) {
+      let url = app.globalData.txBase + '/goods/addToCart';
+      let paras = {
+        gid: this.data.goods.id,
+        num: this.data.goodsQuantity
+      }
+      util.postHttpHelper(url, paras, true, function callBack(res) {
+        if(res.error_code == 0) {
+          wx.showToast({
+            title: '加入购物车成功',
+          });
+        }
+      });
+    } else {
+      wx.showToast({
+        title: '立即购买',
+      })
+    }
+
+        // token过期或无效，重新登录
+        // util.wxLogin(function callBackLogin(lData){
+        //   if(lData.error_code == 0) {
+
+        //   }
+        // });
+
+    this.closeDialog();
+  },
+  
+  // 关闭
+  closeDialog: function () {
+    this.setData({
+      showDialog: false,
+      standardSelected: false,
+      isCartOrBuy: 0
+    });
   },
 
   /**

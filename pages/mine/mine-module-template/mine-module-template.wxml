@@ -1,5 +1,5 @@
 <template name="mineModuleTemplate">
-  <view class="mine-module-container">
+  <view class="mine-module-container" bindtap="onTapModule" data-index="{{index}}">
     <text class="module-name">{{item}}</text>
     <image class="indicate-img" src="/images/indicator_arrow.png" mode="aspectFit"></image>
   </view>

@@ -1,70 +1,71 @@
 <import src="../../common/stepper-template/stepper-template.wxml" />
 
-<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-  <block wx:for="{{imgUrls}}" wx:key="*this">
-    <swiper-item>
-      <image src="{{item}}" data-src="{{item}}" bindtap="previewImage" mode="aspectFit"></image>
-    </swiper-item>
-  </block>
-</swiper>
+<view wx:if="{{goods}}">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{goods.banners}}" wx:key="*this">
+      <swiper-item>
+        <image src="{{item}}" data-src="{{item}}" bindtap="previewImage" mode="aspectFit"></image>
+      </swiper-item>
+    </block>
+  </swiper>
 
-<!-- 标题价格 -->
-<view class="title-price">
-  <view class="prices">
-    <text class="discount-price">¥5188</text>
-    <text class="original-price">¥6199</text>
+  <!-- 标题价格 -->
+  <view class="title-price">
+    <view class="prices">
+      <text class="discount-price">¥{{goods.price}}</text>
+    </view>
+    <text class="title">{{goods.title}}</text>
   </view>
-  <text class="title">Apple iPhone X手机 苹果x 全网通4G 全面屏手机 银色 官方标配 256G</text>
-</view>
 
-<!-- 选择类型 -->
-<view class="kinds-container">
-  <text class="choose-title">选择</text>
-  <view class="kinds">
-    <block wx:for="{{['颜色', '存储容量']}}">
-      <text class="single-kind">{{item}}</text>
+  <!-- 选择类型 -->
+  <view class="kinds-container" bindtap="onSelectedStandard" data-goods-id="{{goods.id}}">
+    <text class="choose-title">已选</text>
+    <view class="kinds">
+      <!-- <block wx:for="{{['颜色', '存储容量']}}"> -->
+      <text class="single-kind">{{goodsQuantity}}件</text>
+      <!-- </block> -->
+    </view>
+    <image class="choose-arrow" src="/images/indicator_arrow.png" mode="aspectFit"></image>
+  </view>
+
+  <!-- 商品详情 -->
+  <view class="detail-container">
+    <text class="detail-title">--- 宝贝详情 ---</text>
+    <block wx:for="{{goods.imgs}}" wx:key="*this">
+      <image src="{{item}}" lazy-load="true" mode="widthFix"></image>
     </block>
   </view>
-  <image class="choose-arrow" src="/images/indicator_arrow.png" mode="aspectFit"></image>
-</view>
 
-<!-- 商品详情 -->
-<view class="detail-container">
-  <text class="detail-title">--- 宝贝详情 ---</text>
-  <block wx:for="{{detailImg}}" wx:key="*this">
-    <image src="{{item}}" lazy-load="true" mode="aspectFit"></image>
-  </block>
-</view>
-
-<!-- 底部悬浮栏 -->
-<view class="bottom-nav">
-  <view class="left-container">
-    <view class="custom-button" bindtap="onContactKefu">
-      <image class="button-img" src="../../images/icon_kefu.png"></image>
-      <text class="button-text">客服</text>
+  <!-- 底部悬浮栏 -->
+  <view class="bottom-nav">
+    <view class="left-container">
+      <view class="custom-button" bindtap="onContactKefu">
+        <image class="button-img" src="../../images/icon_kefu.png"></image>
+        <text class="button-text">客服</text>
+      </view>
+      <view class="custom-button" bindtap="toCar">
+        <image class="button-img" src="../../images/tab_shopping_nor.png" />
+        <text class="button-text">购物车</text>
+      </view>
     </view>
-    <view class="custom-button" bindtap="toCar">
-      <image class="button-img" src="../../images/tab_shopping_nor.png" />
-      <text class="button-text">购物车</text>
+    <view class="right-container">
+      <view class="add-cart-view" bindtap="toggleDialog" data-index="{{1}}">加入购物车</view>
+      <view class="buy-view" bindtap="toggleDialog" data-index="{{2}}">立即购买</view>
     </view>
-  </view>
-  <view class="right-container">
-    <view class="add-cart-view" bindtap="toggleDialog" data-goods-id="{{goodsId}}">加入购物车</view>
-    <view class="buy-view" bindtap="immeBuy">立即购买</view>
   </view>
 </view>
 
 
 <!--加入购物车-->
 <view class="{{showDialog ? 'dialog-show' : ''}}">
-  <view class="dialog-mask" bindtap="toggleDialog" />
+  <view class="dialog-mask" bindtap="closeDialog" />
 
   <view class="dialog-container">
     <view class="infor-container">
       <icon class="image-close" type="cancel" color="gray" bindtap="closeDialog" />
-      <image class="image-sku" src="https://m.360buyimg.com/n12/jfs/t11317/108/1080677336/325163/f4c2a03a/59fd8b17Nbe2fcca3.jpg!q70.jpg"></image>
+      <image class="image-sku" src="{{goods.banners[0]}}"></image>
       <view class="title-infor">
-        <text class="sku-price">￥7935.84</text>
+        <text class="sku-price">￥{{goods.price}}</text>
       </view>
     </view>
 
@@ -77,7 +78,12 @@
       </view>
     </view>
 
-    <view class="submit-button" bindtap="addCar" data-goods-id="{{goodsId}}">
+
+    <view wx:if="{{standardSelected}}" class="submit-button">
+      <view class="add-cart-view" bindtap="onAddCart">加入购物车</view>
+      <view class="buy-view" bindtap="onImmeBuy">立即购买</view>
+    </view>
+    <view wx:else class="submit-button" bindtap="confirm">
       <text>确定</text>
     </view>
   </view>

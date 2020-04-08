@@ -1,17 +1,13 @@
-.kf_button {
-  position: fixed;
-  height: 80rpx;
-  right: 0;
-  bottom: 20rpx;
-  background-color: white;
+@import "../../home/goods-template/goods-template.wxss";
+
+page {
+  background-color: rgb(245, 245, 248);
 }
 
-.kf_button::after {
-  border: none;
-}
-
-.kf_button image {
-  width: 80rpx;
-  height: 80rpx;
-  margin: auto;
+.goods-list-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: rgb(245, 245, 248);
+  margin: 20rpx 0 0 20rpx;
 }

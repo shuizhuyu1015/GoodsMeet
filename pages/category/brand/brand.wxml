@@ -1,3 +1,7 @@
-<view>
-  <text>当前是 {{brand}} 品牌专区</text>
+<import src='../../home/goods-template/goods-template.wxml' />
+
+<view class='goods-list-container'>
+  <block wx:for="{{products}}" wx:for-item="item">
+    <template is="goodsTemplate" data="{{...item}}" />
+  </block>
 </view>
