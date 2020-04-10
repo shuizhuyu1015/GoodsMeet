@@ -8,12 +8,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    cateItems: [],
-    navItems: [
+    // cateItems: [],
+    cateItems: [
       {
-        cate: '护肤美体',
-        cateId: 1,
-        tree: [
+        name: '护肤美体',
+        id: 1,
+        brands: [
           {
             brand: '雅诗兰黛',
             logo: 'https://img30.360buyimg.com/popshop/jfs/t2668/260/4025973149/9893/c3adfddc/57a82f4eNeae01b08.jpg',
@@ -92,9 +92,9 @@ Page({
         ]
       },
       {
-        cate: '奶粉专区',
-        cateId: 2,
-        tree: [
+        name: '奶粉专区',
+        id: 2,
+        brands: [
           {
             brand: '爱他美',
             logo: 'https://img30.360buyimg.com/popshop/jfs/t27745/39/463609088/13935/75a3fa92/5baf39e6N8d454b8f.jpg',
@@ -118,9 +118,9 @@ Page({
         ]
       },
       {
-        cate: '营养保健',
-        cateId: 3,
-        tree: [
+        name: '营养保健',
+        id: 3,
+        brands: [
           {
             brand: 'Bio island',
             logo: 'https://img30.360buyimg.com/popshop/jfs/t6163/145/2545954648/4370/49ab4890/59633e77N93b2a686.png',
@@ -149,9 +149,9 @@ Page({
         ]
       },
       {
-        cate: '面膜专区',
-        cateId: 4,
-        tree: [
+        name: '面膜专区',
+        id: 4,
+        brands: [
           {
             brand: '可莱丝',
             logo: 'https://img30.360buyimg.com/popshop/jfs/t2812/212/436133134/4878/51d4f935/57149abeNe6460ebb.jpg',
@@ -200,9 +200,9 @@ Page({
         ]
       },
       {
-        cate: '居家日用',
-        cateId: 5,
-        tree: [
+        name: '居家日用',
+        id: 5,
+        brands: [
           {
             brand: '贝德玛卸妆水',
             logo: 'https://img30.360buyimg.com/popshop/jfs/t2458/349/919496288/7268/5125a5dc/5632f22eNd9b1610a.png',
@@ -236,8 +236,8 @@ Page({
   onLoad: function (options) {
     that = this;
 
-    var url = app.globalData.txBase + "/category/all";
-    util.getHttpHelper(url, null, false, this.processCateData)
+    // var url = app.globalData.txBase + "/category/all";
+    // util.getHttpHelper(url, null, false, this.processCateData)
   },
 
   processCateData(data) {

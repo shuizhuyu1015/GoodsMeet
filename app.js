@@ -9,9 +9,9 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
-    util.wxLogin(res => {
+    // util.wxLogin(res => {
       
-    });
+    // });
   },
 
   globalData: {

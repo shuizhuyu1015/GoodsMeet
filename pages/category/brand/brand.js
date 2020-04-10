@@ -18,8 +18,12 @@ Page({
     that = this;
     var brandId = options.id;
 
-    var url = app.globalData.txBase + "/brand/" + brandId;
-    util.getHttpHelper(url, null, false, this.processBrandData)
+    wx.setNavigationBarTitle({
+      title: brandId,
+    });
+
+    // var url = app.globalData.txBase + "/brand/" + brandId;
+    // util.getHttpHelper(url, null, false, this.processBrandData)
 
     
   },
